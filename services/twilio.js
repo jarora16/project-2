@@ -1,30 +1,31 @@
 var twilio = require("twilio");
 //Account SID from www.twilio.com/console
-var accountSid = "AC010eb377a4d6f760d4cf379827aec90f"; //Account SID from www.twilio.com/console
+var accountSid = "ACCOUNTSID"; 
 //Auth Token from www.twilio.com/console
-var authToken = "681849c9c7bf2722ca48047b0bb409d1";
+var authToken = "AUTHTOKEN";
 
 var twilio = require("twilio");
 var client = new twilio(accountSid, authToken);
 
 client.messages
 	.create({
-		body: "Thanks for your order. Our chefs will start working on it soon.",
+		body:
+			"Welcome brown bag! We look forward to serving you! Your table is ready. Please proceed to table 12.",
 		// Text this number
-		to: "+15189514222",
+		to: "+15555555555",
 		// From a valid Twilio number
-		from: "+19295521003",
+		from: "+15555555555",
 	})
 	.then((message) => console.log(message.sid));
 
-var numbersToMessage = ["+13129195111", "+15162410043", "+15163162021"];
+var numbersToMessage = ["+15555555555", "+15555555555",];
 
 numbersToMessage.forEach(function (number) {
 	var message = client.messages
 		.create({
 			body:
-				"Welcome brown bag! We look forward to serving you! Your table is ready. Please proceed to table 12.",
-			from: "+19295521003",
+				"Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you.",
+			from: "+15555555555",
 			to: number,
 		})
 		.then((message) => console.log(message.status))
