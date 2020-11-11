@@ -9,6 +9,10 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../pages/index.html"));
   });
 
+  app.get("/cart.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages/cart.html"));
+  });
+
   // app.get("/login", (req, res) => {
   //   // If the user already has an account send them to the members page
   //   if (req.user) {
