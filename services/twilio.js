@@ -1,4 +1,4 @@
-var twilio = require("twilio");
+
 //Account SID from www.twilio.com/console
 var accountSid = "ACCOUNTSID"; 
 //Auth Token from www.twilio.com/console
@@ -16,11 +16,13 @@ client.messages
 		// From a valid Twilio number
 		from: "+15555555555",
 	})
+	// eslint-disable-next-line no-console
 	.then((message) => console.log(message.sid));
 
 var numbersToMessage = ["+15555555555", "+15555555555",];
 
 numbersToMessage.forEach(function (number) {
+	// eslint-disable-next-line no-unused-vars
 	var message = client.messages
 		.create({
 			body:
@@ -28,6 +30,7 @@ numbersToMessage.forEach(function (number) {
 			from: "+15555555555",
 			to: number,
 		})
+		// eslint-disable-next-line no-console
 		.then((message) => console.log(message.status))
 		.done();
 });

@@ -9,6 +9,7 @@ var express = require("express");
 // Sets up the Express App
 // =============================================================
 var app = express();
+// eslint-disable-next-line no-undef
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
@@ -30,6 +31,7 @@ require("./routes/api-routes.js")(app);
 // =============================================================
 db.sequelize.sync({ force: true }).then(function () {
 	app.listen(PORT, function () {
+		// eslint-disable-next-line no-console
 		console.log("App listening on PORT " + PORT);
 	});
 });
