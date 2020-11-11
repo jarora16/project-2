@@ -1,3 +1,4 @@
+let cartCount;
 var cart = {
   // (A) PROPERTIES
   // (A1) HTML ELEMENTS
@@ -78,30 +79,32 @@ var cart = {
 
     // (C2) DRAW PRODUCTS LIST
     cart.hPdt.innerHTML = "";
-    let p, item, subItem, part, cardBody, cardImg, cardFooter, cartCount;
+    
+    //let p, item, subItem, part, cardBody, cardImg, cardFooter;
+    
     for (let id in cart.products) {
       // WRAPPER
-      p = cart.products[id];
-      item = document.createElement("div");
+      let p = cart.products[id];
+      let item = document.createElement("div");
       item.classList.add("col-lg-3", "col-md-6", "mb-4");
       cart.hPdt.appendChild(item);
       //CARD
-      subItem = document.createElement("div");
+      let subItem = document.createElement("div");
       subItem.classList.add("card", "h-100");
       item.appendChild(subItem);
       // PRODUCT IMAGE
-      cardImg = document.createElement("img");
+      let cardImg = document.createElement("img");
       cardImg.src = p.img;
       cardImg.classList.add("card-img-top");
       subItem.appendChild(cardImg);
 
       //   CARD BODY
-      cardBody = document.createElement("div");
+      let cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
       subItem.appendChild(cardBody);
 
       // PRODUCT NAME
-      part = document.createElement("h4");
+     let part = document.createElement("h4");
       part.innerHTML = p.name;
       part.classList.add("card-title");
       cardBody.appendChild(part);
@@ -119,7 +122,7 @@ var cart = {
       cardBody.appendChild(part);
 
       // CARD FOOTER
-      cardFooter = document.createElement("div");
+      let cardFooter = document.createElement("div");
       cardFooter.classList.add("card-footer");
       subItem.appendChild(cardFooter);
 
@@ -148,7 +151,7 @@ var cart = {
 
     // (D1) RESET
     cart.hItems.innerHTML = "";
-    let item, part, pdt;
+    let item, part;
     let empty = true;
     for (let key in cart.items) {
       if (cart.items.hasOwnProperty(key)) {

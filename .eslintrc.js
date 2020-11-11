@@ -287,4 +287,4 @@ module.exports = {
             "never"
         ]
     }
-};
+}; 

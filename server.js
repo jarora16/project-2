@@ -10,6 +10,7 @@ require("dotenv").config();
 // Sets up the Express App
 // =============================================================
 var app = express();
+// eslint-disable-next-line no-undef
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
