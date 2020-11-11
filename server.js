@@ -5,6 +5,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+require("dotenv").config();
 
 // Sets up the Express App
 // =============================================================
@@ -30,6 +31,7 @@ require("./routes/api-routes.js")(app);
 // =============================================================
 db.sequelize.sync({ force: true }).then(function () {
 	app.listen(PORT, function () {
+		// eslint-disable-next-line no-console
 		console.log("App listening on PORT " + PORT);
 	});
 });
