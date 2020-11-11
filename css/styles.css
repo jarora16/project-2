@@ -1,0 +1,95 @@
+:root {
+  --primary: #35b8be;
+  --primaryLight: rgba(78, 202, 208, 0.625);
+}
+a:hover,
+a:visited {
+  color: var(--primary);
+}
+
+body {
+  padding-top: 66px;
+}
+
+.header {
+  background-color: var(--primary);
+}
+
+footer {
+  background-color: var(--primary);
+}
+.space {
+  margin-top: 20em;
+}
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-primary:hover {
+  background-color: var(--primaryLight);
+  border-color: var(--primaryLight);
+}
+
+.spacing {
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px !important;
+}
+
+.images-BrownLogo {
+  float: left;
+  padding-left: 25px;
+  width: 25px;
+  height: 20px;
+  background-size: contain;
+
+
+}
+
+input.p-add,
+input.c-del,
+input.c-empty,
+input.c-checkout {
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  padding: 10px;
+}
+/* (C) CURRENT SHOPPING CART */
+#cart-items {
+  width: 35%;
+  margin-left: 10px;
+}
+#cart-list div.c-item:nth-child(odd) {
+  background: #f2f2f2;
+}
+.c-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+.c-name {
+  width: 100%;
+  padding: 10px;
+}
+.c-del {
+  width: 20%;
+}
+.c-qty {
+  width: 70%;
+  padding: 10px 5px;
+}
+input.c-empty,
+input.c-checkout {
+  width: 100%;
+  margin-top: 10px;
+}
+input.c-del,
+input.c-empty {
+  background: #e21414;
+}
+input.c-checkout {
+  background: #0b8c33;
+}
+.text-white {
+  color: "#fff" !important;
+}
