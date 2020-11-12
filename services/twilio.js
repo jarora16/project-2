@@ -1,30 +1,30 @@
 /* eslint-disable no-console */
 require("dotenv").config({ path: "../.env" });
 
-var twilio = require("twilio");
+const twilio = require("twilio");
 //Account SID from www.twilio.com/console
-var accountSid = process.env.ACTWILIO_ACCOUNTSID; 
+const accountSid = process.env.ACTWILIO_ACCOUNTSID; 
 console.log("accountSid: ", accountSid);
 //Auth Token from www.twilio.com/console
-var authToken = process.env.TWILIO_AUTHTOKEN;
+const authToken = process.env.TWILIO_AUTHTOKEN;
 console.log("authToken: ", accountSid);
 
 // eslint-disable-next-line no-unused-vars
-var username = process.env.TWILIO_USERNAME;
+const username = process.env.TWILIO_USERNAME;
 
-var client = new twilio(accountSid, authToken);
+const client = new twilio(accountSid, authToken);
 
 client.messages
-    .create({
-        body:
+  .create({
+    body:
             "Welcome brown bag! We look forward to serving you! Your table is ready. Please proceed to table 12.",
-        // Text this number
-        to: process.env.TO_NUMBER,
-        // From a valid Twilio number
-        from: process.env.FROM_NUMBER
-    })
-    // eslint-disable-next-line no-console
-    .then((message) => console.log(message.sid));
+    // Text this number
+    to: process.env.TO_NUMBER,
+    // From a valid Twilio number
+    from: process.env.FROM_NUMBER
+  })
+// eslint-disable-next-line no-console
+  .then((message) => console.log(message.sid));
 
 // var numbersToMessage = ["TO_NUMBER", "TO_NUMBER"];
 

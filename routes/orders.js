@@ -1,51 +1,51 @@
 /* eslint-disable require-jsdoc */
-var express = require("express");
-var router = express.Router();
-var Order = require("../models/order");
-var db = require("../models");
+const express = require("express");
+const router = express.Router();
+const Order = require("../models/order");
+const db = require("../models");
 
 // GET: /orders
 // eslint-disable-next-line no-unused-vars
-router.get("/", function(_req, res, _next) {
-  Order.find().then(function(orders) {
+router.get("/", (_req, res, _next) => {
+  Order.find().then((orders) => {
     res.render("orders/index", { orders });
   });
 });
 
 // GET: /orders/4
 // eslint-disable-next-line no-unused-vars
-router.get("/:id/show", function(req, res, _next) {
+router.get("/:id/show", (req, res, _next) => {
   // eslint-disable-next-line prefer-destructuring
-  var id = req.params.id;
-  Order.findOne({ _id: id }).then(function(order) {
+  const id = req.params.id;
+  Order.findOne({ _id: id }).then((order) => {
     res.render("orders/show", { order: order });
   });
 });
 
-router.post("/", function(req, res) {
-    db.Order.create(req.body).then(function(dbOrder) {
-      res.json(dbOrder);
-    });
+router.post("/", (req, res) => {
+  db.Order.create(req.body).then((dbOrder) => {
+    res.json(dbOrder);
   });
+});
 
 // POST: /orders/4/pickup
 // eslint-disable-next-line no-unused-vars
-router.post("/:orderId/pickup", function(req, res, _next) {
-  var id = req.params.orderId;
+router.post("/:orderId/pickup", (req, res, _next) => {
+  const id = req.params.orderId;
 
-  Order.findOne({ _id: id }).then(function(order) {
+  Order.findOne({ _id: id }).then((order) => {
     order.status = "Shipped";
     order.notificationStatus = "Queued";
 
     order.save()
-      .then(function() {
+      .then(() => {
         // eslint-disable-next-line no-use-before-define
         return order.sendSmsNotification("Your food will be cooked and delivered in 20 minutes", getCallbackUri(req));
       })
-      .then(function() {
+      .then(() => {
         res.redirect(`/orders/${id}/show`);
       })
-      .catch(function(err) {
+      .catch((err) => {
         res.status(500).send(err.message);
       });
   });
@@ -53,23 +53,23 @@ router.post("/:orderId/pickup", function(req, res, _next) {
 
 // POST: /orders/4/deliver
 // eslint-disable-next-line no-unused-vars
-router.post("/:orderId/deliver", function(req, res, _next) {
-  var id = req.params.orderId;
+router.post("/:orderId/deliver", (req, res, _next) => {
+  const id = req.params.orderId;
 
   Order.findOne({ _id: id })
-    .then(function(order) {
+    .then((order) => {
       order.status = "Delivered";
       order.notificationStatus = "Queued";
-      var savePromise = order.save();
+      const savePromise = order.save();
       // eslint-disable-next-line no-use-before-define
-      var smsPromise = order.sendSmsNotification("Your clothes have been delivered", getCallbackUri(req));
+      const smsPromise = order.sendSmsNotification("Your clothes have been delivered", getCallbackUri(req));
 
       return Promise.all([savePromise, smsPromise]);
     })
-    .then(function() {
+    .then(() => {
       res.redirect(`/orders/${id}/show`);
     })
-    .catch(function(err) {
+    .catch((err) => {
       res.status(500).send(err.message);
     });
 });
@@ -77,20 +77,20 @@ router.post("/:orderId/deliver", function(req, res, _next) {
 
 // POST: /orders/4/status/update
 // eslint-disable-next-line no-unused-vars
-router.post("/:orderId/status/update", function(req, res, _next) {
-  var id = req.params.orderId;
+router.post("/:orderId/status/update", (req, res, _next) => {
+  const id = req.params.orderId;
 
-  var notificationStatus = req.body.MessageStatus;
+  const notificationStatus = req.body.MessageStatus;
 
   Order.findOne({ _id: id })
-    .then(function(order) {
+    .then((order) => {
       order.notificationStatus = notificationStatus.charAt(0).toUpperCase() + notificationStatus.slice(1);
       return order.save();
     })
-    .then(function() {
+    .then(() => {
       res.sendStatus(200);
     })
-    .catch(function(err) {
+    .catch((err) => {
       res.status(500).send(err.message);
     });
 });
@@ -99,7 +99,7 @@ router.post("/:orderId/status/update", function(req, res, _next) {
 // eslint-disable-next-line func-style
 function getCallbackUri(req) {
   // eslint-disable-next-line prefer-destructuring
-  var host = req.headers.host;
+  const host = req.headers.host;
   return `http://${host}/orders/${req.params.orderId}/status/update`;
 }
 
