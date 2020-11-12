@@ -97,7 +97,7 @@ module.exports = {
         "line-comment-position": "off",
         "linebreak-style": [
             "error",
-            "unix"
+            "windows"
         ],
         "lines-around-comment": "error",
         "lines-around-directive": "error",
@@ -287,4 +287,9 @@ module.exports = {
             "never"
         ]
     }
+<<<<<<< HEAD
 }; 
+=======
+};
+ 
+>>>>>>> 0f6e404ecb3c6ac86b691b7f000d12c8b79f351d
