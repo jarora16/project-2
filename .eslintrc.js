@@ -2,7 +2,8 @@ module.exports = {
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -96,7 +97,7 @@ module.exports = {
         "line-comment-position": "off",
         "linebreak-style": [
             "error",
-            "windows"
+            "unix"
         ],
         "lines-around-comment": "error",
         "lines-around-directive": "error",
@@ -286,4 +287,4 @@ module.exports = {
             "never"
         ]
     }
-};
+}; 
