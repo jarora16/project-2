@@ -1,9 +1,11 @@
 // Dependencies
 // ===========================================================
+require("dotenv").config();
 const yelp = require("yelp-fusion");
 const restaurantResult = "Win+Son";
 const locationResult = "brooklyn,ny";
-const yelpApiKey = process.env.YELP_AK;
+const yelpApiKey = process.env.DB_YELP;
+
 
 const yelpSearchRequest = {
     term: restaurantResult,
