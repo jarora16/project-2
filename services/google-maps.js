@@ -1,5 +1,6 @@
 // Dependencies
 // ==================================================================
+require("dotenv").config();
 const googleApiKey = process.env.GOOGLEMAPS_AK;
 const restaurantResult = "Win+Son";
 const locationResult = "brooklyn,ny";
