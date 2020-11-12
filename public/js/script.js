@@ -79,9 +79,9 @@ var cart = {
 
     // (C2) DRAW PRODUCTS LIST
     cart.hPdt.innerHTML = "";
-    
+
     //let p, item, subItem, part, cardBody, cardImg, cardFooter;
-    
+
     for (let id in cart.products) {
       // WRAPPER
       let p = cart.products[id];
@@ -104,7 +104,7 @@ var cart = {
       subItem.appendChild(cardBody);
 
       // PRODUCT NAME
-     let part = document.createElement("h4");
+      let part = document.createElement("h4");
       part.innerHTML = p.name;
       part.classList.add("card-title");
       cardBody.appendChild(part);
