@@ -1,8 +1,16 @@
+/* eslint-disable no-console */
+require("dotenv").config({ path: "../.env" });
+
 var twilio = require("twilio");
 //Account SID from www.twilio.com/console
-var accountSid = "ACCOUNTSID"; 
+var accountSid = process.env.ACTWILIO_ACCOUNTSID; 
+console.log("accountSid: ", accountSid);
 //Auth Token from www.twilio.com/console
-var authToken = "AUTHTOKEN";
+var authToken = process.env.TWILIO_AUTHTOKEN;
+console.log("authToken: ", accountSid);
+
+// eslint-disable-next-line no-unused-vars
+var username = process.env.TWILIO_USERNAME;
 
 var client = new twilio(accountSid, authToken);
 
@@ -11,26 +19,26 @@ client.messages
         body:
             "Welcome brown bag! We look forward to serving you! Your table is ready. Please proceed to table 12.",
         // Text this number
-        to: "+15555555555",
+        to: process.env.TO_NUMBER,
         // From a valid Twilio number
-        from: "+15555555555",
+        from: process.env.FROM_NUMBER
     })
     // eslint-disable-next-line no-console
     .then((message) => console.log(message.sid));
 
-var numbersToMessage = ["+15555555555", "+15555555555",];
+// var numbersToMessage = ["TO_NUMBER", "TO_NUMBER"];
 
-numbersToMessage.forEach(function (number) {
-	//go back and check
-    // eslint-disable-next-line no-unused-vars
-    var message = client.messages
-        .create({
-            body:
-                "Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you.",
-            from: "+15555555555",
-            to: number,
-        })
-        // eslint-disable-next-line no-console
-        .then((message) => console.log(message.status))
-        .done();
-});
+// numbersToMessage.forEach(function (number) {
+// 	//go back and check
+//     // eslint-disable-next-line no-unused-vars
+//     var message = client.messages
+//         .create({
+//             body:
+//                 "Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you.",
+//             from: "FROM_NUMBER",
+//             to: number,
+//         })
+//         // eslint-disable-next-line no-console
+//         .then((message) => console.log(message.status))
+//         .done();
+// });
