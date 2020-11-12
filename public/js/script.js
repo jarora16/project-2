@@ -1,5 +1,5 @@
 let cartCount;
-var cart = {
+const cart = {
   // (A) PROPERTIES
   // (A1) HTML ELEMENTS
   hPdt: null, // HTML products list
@@ -54,7 +54,7 @@ var cart = {
   // (B2) LOAD CART FROM LOCALSTORAGE
   load: function () {
     cart.items = localStorage.getItem("cart");
-    if (cart.items == null) {
+    if (cart.items === null) {
       cart.items = {};
     } else {
       cart.items = JSON.parse(cart.items);
@@ -82,29 +82,29 @@ var cart = {
 
     //let p, item, subItem, part, cardBody, cardImg, cardFooter;
 
-    for (let id in cart.products) {
+    for (const id in cart.products) {
       // WRAPPER
-      let p = cart.products[id];
-      let item = document.createElement("div");
+      const p = cart.products[id];
+      const item = document.createElement("div");
       item.classList.add("col-lg-3", "col-md-6", "mb-4");
       cart.hPdt.appendChild(item);
       //CARD
-      let subItem = document.createElement("div");
+      const subItem = document.createElement("div");
       subItem.classList.add("card", "h-100");
       item.appendChild(subItem);
       // PRODUCT IMAGE
-      let cardImg = document.createElement("img");
+      const cardImg = document.createElement("img");
       cardImg.src = p.img;
       cardImg.classList.add("card-img-top");
       subItem.appendChild(cardImg);
 
       //   CARD BODY
-      let cardBody = document.createElement("div");
+      const cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
       subItem.appendChild(cardBody);
 
       // PRODUCT NAME
-      let part = document.createElement("h4");
+      const part = document.createElement("h4");
       part.innerHTML = p.name;
       part.classList.add("card-title");
       cardBody.appendChild(part);
@@ -122,7 +122,7 @@ var cart = {
       cardBody.appendChild(part);
 
       // CARD FOOTER
-      let cardFooter = document.createElement("div");
+      const cardFooter = document.createElement("div");
       cardFooter.classList.add("card-footer");
       subItem.appendChild(cardFooter);
 
@@ -153,7 +153,7 @@ var cart = {
     cart.hItems.innerHTML = "";
     let item, part;
     let empty = true;
-    for (let key in cart.items) {
+    for (const key in cart.items) {
       if (cart.items.hasOwnProperty(key)) {
         empty = false;
         break;
@@ -172,7 +172,7 @@ var cart = {
       let p,
         total = 0,
         subtotal = 0;
-      for (let id in cart.items) {
+      for (const id in cart.items) {
         // ITEM
         p = cart.products[id];
         item = document.createElement("div");
@@ -226,7 +226,7 @@ var cart = {
 
   // (E) ADD ITEM INTO CART
   add: function () {
-    if (cart.items[this.dataset.id] == undefined) {
+    if (cart.items[this.dataset.id] === undefined) {
       cart.items[this.dataset.id] = 1;
     } else {
       cart.items[this.dataset.id]++;
@@ -238,7 +238,7 @@ var cart = {
 
   // (F) CHANGE QUANTITY
   change: function () {
-    if (this.value == 0) {
+    if (this.value === 0) {
       delete cart.items[this.dataset.id];
     } else {
       cart.items[this.dataset.id] = this.value;
