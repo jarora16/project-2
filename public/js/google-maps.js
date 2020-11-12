@@ -1,0 +1,15 @@
+// Dependencies
+// ==================================================================
+const googleApiKey = process.env.GOOGLEMAPS_AK;
+const restaurantResult = "Win+Son";
+const locationResult = "brooklyn,ny";
+
+// iframe for map
+// ==================================================================
+const restaurantMap = `<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}
+  &q=${restaurantResult},${locationResult}" allowfullscreen>
+  </iframe>`;
+
+// Append to page
+// ==================================================================
+$("#google-map").append(restaurantMap);
