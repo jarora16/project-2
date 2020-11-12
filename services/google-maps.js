@@ -13,4 +13,5 @@ const restaurantMap = `<iframe width="600" height="450" frameborder="0" style="b
 // Append to page
 // *****NEEDS DIV ON PAGE TO BE PLACED IN*****
 // ==================================================================
+// eslint-disable-next-line no-undef
 $("#google-map").append(restaurantMap);
