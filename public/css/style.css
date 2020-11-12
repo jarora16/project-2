@@ -1,0 +1,64 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  @mixin clearfix() {
+    &:after, &:before {
+      display: table;
+      content: " ";
+      line-height: 0;
+      font-size: 0;
+      clear: both; 
+    }
+  }
+  
+  .container {
+    @include clearfix;
+    width: 50%;
+    margin: 1em auto;
+    border: 1px solid #ddd;
+    padding: .3em .6em;
+    p {
+      font-size: .9em;
+      color: #777;
+      margin-bottom: 1.5em;
+      font-style: italic;
+    }
+  }
+  
+  .group-header {
+    float: center;
+    font-weight: 700;
+    width: 20%;
+    margin: .7em 0 1em 0;
+    span {
+      float: center;
+      width: 50%;
+      text-align: center;
+      display: block;
+    }
+  }
+  
+  h3 {
+    @include clearfix;
+    position: relative;
+    font-weight: 700;
+    margin: .7em 0 1em 0;
+    span {
+      float: left;
+      width: 10%;
+      text-align: center;
+      display: block;
+      &:first-child {
+        width: 40%;
+        text-align: left;
+      }
+    }
+    .dots {
+      width: 40%;
+      border-bottom: 2px dotted #ccc;
+      margin-top: .8em;
+    }
+  }
+  
