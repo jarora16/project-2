@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 require("dotenv").config({ path: "../.env" });
 
@@ -17,7 +18,7 @@ const client = new twilio(accountSid, authToken);
 client.messages
   .create({
     body:
-            "Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you.",
+            "Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you. Powered by Twilio.",
     // Text this number
     to: process.env.TO_NUMBER,
     // From a valid Twilio number
@@ -26,6 +27,19 @@ client.messages
 // eslint-disable-next-line no-console
   .then((message) => console.log(message.sid));
 
+function sendMessage({customerPhoneNumber, customerName, message}) {
+  client.messages.create({
+    body:
+            "Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you. Powered by Twilio.",
+    // Text this number
+    to: process.env.TO_NUMBER,
+    // From a valid Twilio number
+    from: process.env.FROM_NUMBER
+  })
+  // eslint-disable-next-line no-console
+    .then((message) => console.log(message.sid));
+
+}
 // var numbersToMessage = ["TO_NUMBER", "TO_NUMBER"];
 
 // numbersToMessage.forEach(function (number) {
@@ -42,3 +56,6 @@ client.messages
 //         .then((message) => console.log(message.status))
 //         .done();
 // });
+module.exports = {
+  sendMessage: sendMessage
+};
