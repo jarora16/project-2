@@ -18,7 +18,7 @@ const client = new twilio(accountSid, authToken);
 client.messages
   .create({
     body:
-            "Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you. Powered by Twilio.",
+            "Welcome to the brown bag app! We look forward to serving you! Our chefs will be happy to prepare your food for your pickup order. We will text you again when its ready. Powered by Twilio.",
     // Text this number
     to: process.env.TO_NUMBER,
     // From a valid Twilio number
@@ -30,7 +30,7 @@ client.messages
 function sendMessage({customerPhoneNumber, customerName, message}) {
   client.messages.create({
     body:
-            "Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you. Powered by Twilio.",
+            "Welcome to the brown bag app! We look forward to taking care of your order! Our chefs will be happy to prepare your food for your pickup order. We will text you again when its ready. Powered by Twilio.",
     // Text this number
     to: process.env.TO_NUMBER,
     // From a valid Twilio number

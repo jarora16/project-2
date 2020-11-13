@@ -11,7 +11,7 @@ router.post("/", (req, res) => {
     res.json(orders);
     twilio.sendMessage({
       customerPhoneNumber:req.body. customerPhoneNumber,
-      customerName:"Eric", 
+      customerName:"Customer", 
       message:"Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you.Powered by Twilio."});
   });
 });
