@@ -16,8 +16,8 @@ const cart = {
       name: "So-Easy Sloppy Joes",
       desc:
         "Everybody in the family will love the zesty, fun flavor of this simple staple. Try it spooned over warmed cornbread if you don’t have buns.",
-      img: "images/Group-Photo-p-500.jpeg",
-      price: 2034,
+      img: "images/Group-Photo.jpg",
+      price: 20,
     },
     124: {
       name: "Traditional Meat Loaf",
@@ -25,7 +25,7 @@ const cart = {
         "Topped with a sweet sauce, this meat loaf tastes so good that you might want to double the recipe so everyone can have seconds.",
       img:
         "https://www.foodiesfeed.com/wp-content/uploads/2019/04/mae-mu-fried-rice-768x614.jpg",
-      price: 1247,
+      price: 12,
     },
     125: {
       name: "Italian Spiral Meat Loaf",
@@ -33,7 +33,7 @@ const cart = {
         "Take a classic comfort food to delicious new heights with this impressive recipe.Take a classic comfort food to delicious new heights with this impressive recipe.",
       img:
         "https://foodiesfeed.com/wp-content/uploads/2020/03/traditional-korean-food-in-a-restaurant.jpg",
-      price: 675,
+      price: 15,
     },
     126: {
       name: "Saucy Pork Chop Skillet",
@@ -41,7 +41,7 @@ const cart = {
         "Skillet pork chops make easy comfort food. We have them with a salad and fruit. If you've got fresh green beans or steamed broccoli, go for it.",
       img:
         "https://media.istockphoto.com/photos/plate-of-shrimp-fried-rice-on-a-placemat-and-wood-table-picture-id186826982?b=1&k=6&m=186826982&s=170667a&w=0&h=96FREY2n_gIZKRI8W33V2X2sOjFtDZA9brquKu7msb4=",
-      price: 842,
+      price: 14,
     },
   },
 
@@ -104,7 +104,7 @@ const cart = {
       subItem.appendChild(cardBody);
 
       // PRODUCT NAME
-      const part = document.createElement("h4");
+      let part = document.createElement("h4");
       part.innerHTML = p.name;
       part.classList.add("card-title");
       cardBody.appendChild(part);
@@ -275,7 +275,7 @@ const cart = {
       */
   },
 };
-if (window.location.pathname === "/index.html") {
+if (window.location.pathname === "/") {
   cart.init();
 } else {
   cart.load();
