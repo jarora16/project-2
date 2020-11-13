@@ -1,14 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const Order = require("../models/order");
+const db = require("../models");
+const twilio = require("../services/twilio")
 
 // GET: /orders
 // eslint-disable-next-line no-unused-vars
-router.get("/", (_req, res, _next) => {
-  console.log("worked");
-  // Order.find().then((orders) => {
-  //   res.render("orders/index", { orders });
-  // });
+router.post("/", (req, res) => {
+  console.log("new order", req.body);
+  db.Order.create().then((orders) => {
+    res.json(orders);
+    twilio.sendMessage({
+      customerPhoneNumber:req.body. customerPhoneNumber,
+      customerName:"Eric", 
+      message:"Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you.Powered by Twilio."});
+  });
 });
 
 // GET: /orders/4
