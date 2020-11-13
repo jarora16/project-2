@@ -17,6 +17,10 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../pages/about.html"));
   });
 
+  app.get("/contact.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages/contact.html"));
+  });
+
   // app.get("/login", (req, res) => {
   //   // If the user already has an account send them to the members page
   //   if (req.user) {
