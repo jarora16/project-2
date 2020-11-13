@@ -5,9 +5,10 @@ const Order = require("../models/order");
 // GET: /orders
 // eslint-disable-next-line no-unused-vars
 router.get("/", (_req, res, _next) => {
-  Order.find().then((orders) => {
-    res.render("orders/index", { orders });
-  });
+  console.log("worked");
+  // Order.find().then((orders) => {
+  //   res.render("orders/index", { orders });
+  // });
 });
 
 // GET: /orders/4
