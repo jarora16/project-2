@@ -99,7 +99,7 @@ const cart = {
       subItem.appendChild(cardImg);
 
       //   CARD BODY
-      let cardBody = document.createElement("div");
+      const cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
       subItem.appendChild(cardBody);
 
