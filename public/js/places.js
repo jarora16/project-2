@@ -1,5 +1,5 @@
 function renderPlace() {
-  const placesUrl = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${process.env.PLACES_API}&place_id=ChIJ4-bYSvxbwokRPhLlLQFzOEo`;
+  const placesUrl = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyAPG0uMATmuMmwuy_3nntET_8HdaykPkZE&place_id=ChIJ4-bYSvxbwokRPhLlLQFzOEo";
 
   $.ajax({
     url: placesUrl,
