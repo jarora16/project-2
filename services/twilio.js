@@ -17,7 +17,7 @@ const client = new twilio(accountSid, authToken);
 client.messages
   .create({
     body:
-            "Welcome brown bag! We look forward to serving you! Your table is ready. Please proceed to table 12.",
+            "Welcome brown bag! We look forward to serving you! Your table is ready now. Please proceed to table 12. Then when you are ready to eat please place your order on the app and our chefs will be happy to prepare it for you.",
     // Text this number
     to: process.env.TO_NUMBER,
     // From a valid Twilio number

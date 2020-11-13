@@ -1,8 +1,6 @@
-/* eslint-disable require-jsdoc */
 const express = require("express");
 const router = express.Router();
 const Order = require("../models/order");
-const db = require("../models");
 
 // GET: /orders
 // eslint-disable-next-line no-unused-vars
@@ -22,12 +20,6 @@ router.get("/:id/show", (req, res, _next) => {
   });
 });
 
-router.post("/", (req, res) => {
-  db.Order.create(req.body).then((dbOrder) => {
-    res.json(dbOrder);
-  });
-});
-
 // POST: /orders/4/pickup
 // eslint-disable-next-line no-unused-vars
 router.post("/:orderId/pickup", (req, res, _next) => {
@@ -40,7 +32,7 @@ router.post("/:orderId/pickup", (req, res, _next) => {
     order.save()
       .then(() => {
         // eslint-disable-next-line no-use-before-define
-        return order.sendSmsNotification("Your food will be cooked and delivered in 20 minutes", getCallbackUri(req));
+        return order.sendSmsNotification("Your order will be ready in 20 minutes", getCallbackUri(req));
       })
       .then(() => {
         res.redirect(`/orders/${id}/show`);
@@ -62,7 +54,7 @@ router.post("/:orderId/deliver", (req, res, _next) => {
       order.notificationStatus = "Queued";
       const savePromise = order.save();
       // eslint-disable-next-line no-use-before-define
-      const smsPromise = order.sendSmsNotification("Your clothes have been delivered", getCallbackUri(req));
+      const smsPromise = order.sendSmsNotification("Your food is ready for pickup", getCallbackUri(req));
 
       return Promise.all([savePromise, smsPromise]);
     })
@@ -82,7 +74,7 @@ router.post("/:orderId/status/update", (req, res, _next) => {
 
   const notificationStatus = req.body.MessageStatus;
 
-  Order.findOne({ _id: id })
+  Order.findOne({_id: id})
     .then((order) => {
       order.notificationStatus = notificationStatus.charAt(0).toUpperCase() + notificationStatus.slice(1);
       return order.save();
@@ -95,10 +87,7 @@ router.post("/:orderId/status/update", (req, res, _next) => {
     });
 });
 
-// eslint-disable-next-line require-jsdoc
-// eslint-disable-next-line func-style
 function getCallbackUri(req) {
-  // eslint-disable-next-line prefer-destructuring
   const host = req.headers.host;
   return `http://${host}/orders/${req.params.orderId}/status/update`;
 }
