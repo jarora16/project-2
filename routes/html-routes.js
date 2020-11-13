@@ -9,8 +9,20 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../pages/index.html"));
   });
 
-  app.get("/cart.html", (req, res) => {
+  app.get("/cart", (req, res) => {
     res.sendFile(path.join(__dirname, "../pages/cart.html"));
+  });
+
+  app.get("/about.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages/about.html"));
+  });
+
+  app.get("/testingpage.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages/testingpage.html"));
+  });
+  
+  app.get("/contact.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages/contact.html"));
   });
 
   // app.get("/login", (req, res) => {
