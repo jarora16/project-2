@@ -33,7 +33,7 @@ router.post("/:orderId/pickup", (req, res, next) => {
     order.save()
       .then(() => {
         // eslint-disable-next-line no-use-before-define
-        return order.sendSmsNotification("Your order will be cooked and will be ready for pickup in 20 minutes", getCallbackUri(req));
+        return order.sendSmsNotification("Your order will be cooked and ready for pickup in 20 minutes", getCallbackUri(req));
       })
       .then(() => {
         res.redirect(`/orders/${id}/show`);
