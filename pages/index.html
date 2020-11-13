@@ -18,6 +18,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <!-- Custom styles for this template -->
   <link href="../css/styles.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -68,15 +69,49 @@
       </p>
       <a href="#cart-products" class="btn btn-primary btn-lg text-white">Place an order</a>
     </header>
+    <!-- Res information -->
+    <div class="container mt-5">
+      <div class="row">
+          <div class="col-sm-6 mt-5" id="restaurant-info">
+              <!-- Name of resturant -->
+             <div class="row">
+                 <div class="col-sm-" id="restaurant-name"></div>
+             </div>
+             <!-- Review Information -->
+             <div class="row">
+                 <!-- Rating of resturant -->
+                 <div class="col-4" id="restaurant-rating"></div>
+                 <!-- Number of reviews -->
+                 <div class="col-3" id="restaurant-numRating"></div>
+                 <div class="col-5"></div>
+             </div>
+             <!-- General information -->
+             <div class="row">
+                 <!-- Resturant price rating -->
+                 <div class="col-sm-3" id="restaurant-price"></div>
+                 <!-- Resturant hours -->
+                 <div class="col-sm-9" id="restaurant-hours"></div>
+             </div>
+               <!-- Resturant contact info -->
+               <div class="row">
+                  <div class="col-sm- mt-2" id="restaurant-contact"></div>
+                 </div>
+          </div>
+          <div class="col-sm-6 mt-5" id="google-map">
+             
+          </div>
+      </div>
+  </div>
 
-    <!-- Page Features -->
-    <div class="text-center">
+     <!-- Page Features -->
+     <div class="text-center">
       <h1>Browse our menu</h1>
       <p>
         Use our menu to place an order online and our staff will have
         your food ready ASAP!
       </p>
     </div>
+
 
     <div class="row text-center" id="cart-products"></div>
     <!-- /.row -->
@@ -93,6 +128,8 @@
     <!-- /.container -->
   </footer>
   <!-- SiteJavascript -->
+  <script src="../js/places.js"></script>
+  <script src="../js/google-maps.js"></script>
   <script src="js/script.js"></script>
 
   <!-- Bootstrap core JavaScript -->
