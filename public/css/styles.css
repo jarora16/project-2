@@ -93,3 +93,19 @@ input.c-checkout {
 .text-white {
   color: "#fff" !important;
 }
+
+#restaurant-contact p {
+ line-height: 0rem;
+}
+
+#restaurant-info {
+  text-align: left;
+}
+
+#restaurant-numRating {
+  display: flex;
+        height: 3.2rem;
+        margin: auto;
+       align-items:center;
+        justify-content:center;
+}

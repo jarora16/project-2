@@ -11,7 +11,7 @@ function renderPlace() {
     const resName = $("<h1>").text(places.name);
     $("#restaurant-name").append(resName);
     // Restaurant rating
-    const resRating = $("<h3>").text(places.rating + "/5");
+    const resRating = $("<h3>").text(places.rating + "/5 Stars");
     $("#restaurant-rating").append(resRating);
     // Total number of resturant reviews
     const resNumRating = $("<p>").text(places.user_ratings_total + " Reviews");
@@ -19,9 +19,6 @@ function renderPlace() {
     // Restuarant price level
     const resPrice = $("<p>").text("Price: " + places.price_level + "/5");
     $("#restaurant-price").append(resPrice);
-    // Is Resturant Open
-    const isOpen = $("<p>").text(places.opening_hours.open_now);
-    $("#restaurant-isopen").append(isOpen);
     // Resturant hours
     const resHours = $("<p>").text(places.opening_hours.weekday_text[4]);
     $("#restaurant-hours").append(resHours);
@@ -29,10 +26,10 @@ function renderPlace() {
     const resAddress = $("<p>").text(places.formatted_address);
     $("#restaurant-contact").append(resAddress);
     // Resturant phone number
-    const resPhone = $("<p>").text(places.formatted_phone_number);
+    const resPhone = $(`<a href="tel:${places.formatted_phone_number}">${places.formatted_phone_number}</a><br/>`);
     $("#restaurant-contact").append(resPhone);
     // Resturant website
-    const resWebsite = $("<p>").text(places.website);
+    const resWebsite = $(`<a href="${places.website}">${places.website}</a>`);
     $("#restaurant-contact").append(resWebsite);
   });
 }
