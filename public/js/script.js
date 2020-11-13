@@ -16,7 +16,7 @@ const cart = {
       name: "So-Easy Sloppy Joes",
       desc:
         "Everybody in the family will love the zesty, fun flavor of this simple staple. Try it spooned over warmed cornbread if you don’t have buns.",
-      img: "images/Group-Photo-p-500.jpeg",
+      img: "images/Group-Photo.jpg",
       price: 2034,
     },
     124: {
@@ -99,12 +99,12 @@ const cart = {
       subItem.appendChild(cardImg);
 
       //   CARD BODY
-      const cardBody = document.createElement("div");
+      let cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
       subItem.appendChild(cardBody);
 
       // PRODUCT NAME
-      const part = document.createElement("h4");
+      let part = document.createElement("h4");
       part.innerHTML = p.name;
       part.classList.add("card-title");
       cardBody.appendChild(part);
@@ -275,7 +275,7 @@ const cart = {
       */
   },
 };
-if (window.location.pathname === "/index.html") {
+if (window.location.pathname === "/") {
   cart.init();
 } else {
   cart.load();
