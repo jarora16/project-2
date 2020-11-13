@@ -15,7 +15,7 @@ function renderPlace() {
     $("#restaurant-rating").append(resRating);
     // Total number of resturant reviews
     const resNumRating = $("<p>").text(places.user_ratings_total + " Reviews");
-    $("#restaurant-numRating").append(resNumRating);
+    $("#restaurant-rating").append(resNumRating);
     // Restuarant price level
     const resPrice = $("<p>").text("Price: " + places.price_level + "/5");
     $("#restaurant-price").append(resPrice);
